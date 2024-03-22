@@ -3,7 +3,7 @@
 <channel>
 	<title><?= $channel['title'] ?></title>
 	<link><?= $channel['link'] ?></link>
-<?php foreach ($items as $item) : ?>
+<?php foreach ($items as $item) { ?>
 	<item>
 		<link><?= $item['loc'] ?></link>
 		<title><?= $item['title'] ?></title>
@@ -12,6 +12,6 @@
 		<ror:sortOrder><?= $item['priority'] ?></ror:sortOrder>
 		<ror:resourceOf>sitemap</ror:resourceOf>
 	</item>
-<?php endforeach; ?>
+<?php } ?>
 </channel>
 </rss>
