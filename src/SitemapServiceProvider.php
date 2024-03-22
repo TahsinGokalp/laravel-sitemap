@@ -42,7 +42,7 @@ class SitemapServiceProvider extends ServiceProvider implements DeferrableProvid
             $config = $app->make('config');
 
             return new Sitemap(
-                (array)$config->get('sitemap'),
+                (array) $config->get('sitemap'),
                 $app->make('cache.store'),
                 $config,
                 $app->make('files'),

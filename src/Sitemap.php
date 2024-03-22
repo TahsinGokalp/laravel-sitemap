@@ -264,8 +264,8 @@ class Sitemap
         // check if caching is enabled, there is a cached content and its duration isn't expired
         if ($this->isCached()) {
             ($format === 'sitemapindex')
-                ? $this->model->resetSitemaps((array)$this->cache->get($this->model->getCacheKey()))
-                : $this->model->resetItems((array)$this->cache->get($this->model->getCacheKey()));
+                ? $this->model->resetSitemaps((array) $this->cache->get($this->model->getCacheKey()))
+                : $this->model->resetItems((array) $this->cache->get($this->model->getCacheKey()));
         } elseif ($this->model->getUseCache()) {
             ($format === 'sitemapindex')
                 ? $this->cache->put($this->model->getCacheKey(), $this->model->getSitemaps(), $this->model->getCacheDuration())
@@ -274,7 +274,7 @@ class Sitemap
 
         if (! $this->model->getLink()) {
             $appUrl = $this->configRepository->get('app.url');
-            if(is_string($appUrl)){
+            if (is_string($appUrl)) {
                 $this->model->setLink($appUrl);
             }
         }
