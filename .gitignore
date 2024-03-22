@@ -1,22 +1,14 @@
-.directory
-.DS_Store
-Thumbs.db
-*.sh
 .idea
-
-# composer
-composer.phar
+.phpunit.cache
+build
 composer.lock
-/vendor
-
-# cs
-.php_cs
-/.php_cs.cache
-
-# phpunit
-/.phpunit.result.cache
-
-# test runtime files
-/tests/tmp
-/tests/sitema*.xml
-/tests/sitema*.xml.gz
+coverage
+docs
+phpunit.xml.dist
+phpstan.neon
+testbench.yaml
+vendor
+node_modules
+tests/sitemap.xml
+tests/sitemap.xml.gz
+tests/sitemap-*.xml

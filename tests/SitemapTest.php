@@ -1,9 +1,9 @@
 <?php
 
-namespace TahsinGokalp\Sitemap\Test;
+namespace TahsinGokalp\Sitemap\Tests;
 
-use TahsinGokalp\Sitemap\Sitemap;
 use Orchestra\Testbench\TestCase;
+use TahsinGokalp\Sitemap\Sitemap;
 use TahsinGokalp\Sitemap\SitemapServiceProvider;
 
 class SitemapTest extends TestCase
@@ -12,10 +12,12 @@ class SitemapTest extends TestCase
      * @var Sitemap
      */
     protected $sitemap;
+
     /**
      * @var SitemapServiceProvider
      */
     protected $sp;
+
     /**
      * @var array
      */
@@ -31,15 +33,15 @@ class SitemapTest extends TestCase
         return ['Sitemap' => Sitemap::class];
     }
 
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
 
         $config = [
-            'sitemap.use_cache'     => false,
-            'sitemap.cache_key'     => 'Laravel.Sitemap.',
-            'sitemap.cache_duration'  => 3600,
-            'sitemap.testing'     => true,
+            'sitemap.use_cache' => false,
+            'sitemap.cache_key' => 'Laravel.Sitemap.',
+            'sitemap.cache_duration' => 3600,
+            'sitemap.testing' => true,
             'sitemap.styles_location' => '/styles/',
         ];
 
@@ -55,7 +57,7 @@ class SitemapTest extends TestCase
 
         // test custom methods
         $this->assertEquals([SitemapServiceProvider::class], $this->getPackageProviders($this->sitemap));
-        $this->assertEquals(['Sitemap'=>Sitemap::class], $this->getPackageAliases($this->sitemap));
+        $this->assertEquals(['Sitemap' => Sitemap::class], $this->getPackageAliases($this->sitemap));
 
         // test SitemapServiceProvider (fixes coverage of the class!)
         $this->sp = new SitemapServiceProvider($this->sitemap);
@@ -113,64 +115,64 @@ class SitemapTest extends TestCase
 
         $videos = [
             [
-                'title'       => 'TestTitle',
+                'title' => 'TestTitle',
                 'description' => 'TestDescription',
                 'content_loc' => 'https://damianoff.com/testVideo.flv',
-                'uploader'    => [
+                'uploader' => [
                     'uploader' => 'Roumen',
-                    'info'     => 'https://damianoff.com',
+                    'info' => 'https://damianoff.com',
                 ],
                 'gallery_loc' => [
-                    'title'       => 'testGalleryTitle',
+                    'title' => 'testGalleryTitle',
                     'gallery_loc' => 'https://damianoff.com/testGallery',
                 ],
                 'price' => [
                     'currency' => 'EUR',
-                    'price'    => '100.00',
+                    'price' => '100.00',
                 ],
                 'restriction' => [
                     'relationship' => 'allow',
-                    'restriction'  => 'IE GB US CA',
+                    'restriction' => 'IE GB US CA',
                 ],
                 'player_loc' => [
-                    'player_loc'  => 'https://damianoff.com/testPlayer.flv',
+                    'player_loc' => 'https://damianoff.com/testPlayer.flv',
                     'allow_embed' => 'yes',
-                    'autoplay'    => 'ap=1',
+                    'autoplay' => 'ap=1',
                 ],
-                'thumbnail_loc'         => 'https://damianoff.com/testVideo.png',
-                'duration'              => '600',
-                'expiration_date'       => '2015-12-30T23:59:00+02:00',
-                'rating'                => '5.00',
-                'view_count'            => '100',
-                'publication_date'      => '2015-05-30T23:59:00+02:00',
-                'family_friendly'       => 'yes',
+                'thumbnail_loc' => 'https://damianoff.com/testVideo.png',
+                'duration' => '600',
+                'expiration_date' => '2015-12-30T23:59:00+02:00',
+                'rating' => '5.00',
+                'view_count' => '100',
+                'publication_date' => '2015-05-30T23:59:00+02:00',
+                'family_friendly' => 'yes',
                 'requires_subscription' => 'no',
             ],
             [
-                'title'       => 'TestTitle2&',
+                'title' => 'TestTitle2&',
                 'description' => 'TestDescription2&',
                 'content_loc' => 'https://damianoff.com/testVideo2.flv',
             ],
         ];
 
         $googleNews = [
-            'sitename'         => 'Foo',
-            'language'         => 'en',
+            'sitename' => 'Foo',
+            'language' => 'en',
             'publication_date' => '2016-01-03',
-            'access'           => 'Subscription',
-            'keywords'         => 'googlenews, sitemap',
-            'genres'           => 'PressRelease, Blog',
-            'stock_tickers'    => 'NASDAQ:A, NASDAQ:B',
+            'access' => 'Subscription',
+            'keywords' => 'googlenews, sitemap',
+            'genres' => 'PressRelease, Blog',
+            'stock_tickers' => 'NASDAQ:A, NASDAQ:B',
         ];
 
         $alternates = [
             [
                 'media' => 'only screen and (max-width: 640px)',
-                'url'   => 'https://m.foobar.tld',
+                'url' => 'https://m.foobar.tld',
             ],
             [
                 'media' => 'only screen and (max-width: 960px)',
-                'url'   => 'https://foobar.tld',
+                'url' => 'https://foobar.tld',
             ],
         ];
 
@@ -231,16 +233,16 @@ class SitemapTest extends TestCase
         // add multiple items
         $this->sitemap->addItem([
             [
-                'loc'      => 'TestLoc2',
-                'lastmod'  => '2016-01-02 00:00:00',
+                'loc' => 'TestLoc2',
+                'lastmod' => '2016-01-02 00:00:00',
                 'priority' => 0.85,
-                'freq'     => 'daily',
+                'freq' => 'daily',
             ],
             [
-                'loc'      => 'TestLoc3',
-                'lastmod'  => '2016-01-03 00:00:00',
+                'loc' => 'TestLoc3',
+                'lastmod' => '2016-01-03 00:00:00',
                 'priority' => 0.75,
-                'freq'     => 'daily',
+                'freq' => 'daily',
             ],
         ]);
 
@@ -272,7 +274,7 @@ class SitemapTest extends TestCase
         $this->sitemap->addSitemap('https://test.local', '2018-06-11 14:35:00');
 
         $testSitemapsArray = [
-            'loc'     => 'https://test.local',
+            'loc' => 'https://test.local',
             'lastmod' => '2018-06-11 14:35:00',
         ];
 
@@ -467,7 +469,7 @@ class SitemapTest extends TestCase
                 'googlenews' => [
                     'sitename' => 'Foo',
                     'language' => 'en',
-                    'publication_date'=> '2018-08-25',
+                    'publication_date' => '2018-08-25',
                 ],
                 'title' => 'TestTitle',
             ];
