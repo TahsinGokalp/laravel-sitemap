@@ -1,6 +1,6 @@
 {
     "name": "tahsingokalp/laravel-sitemap",
-    "description": "PHP 8 sitemap generator for Laravel 8 and 9",
+    "description": "Sitemap generator for Laravel",
     "keywords": ["laravel", "php", "sitemap", "generator", "xml", "html", "google-news"],
     "license": "MIT",
     "authors": [
@@ -15,6 +15,12 @@
             "email": "rob@f9web.co.uk",
             "role": "Developer",
             "homepage": "https://f9web.co.uk"
+        },
+        {
+            "name": "Tahsin Gökalp Şaan",
+            "email": "tahsinsaan@gmail.com",
+            "role": "Developer",
+            "homepage": "https://tahsingokalp.dev"
         }
     ],
     "support": {
