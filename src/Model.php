@@ -21,7 +21,7 @@ class Model
 
     private bool $useStyles = true;
 
-    private string $sloc = '/vendor/sitemap/styles/';
+    private ?string $sloc = '/vendor/sitemap/styles/';
 
     private bool $useCache = false;
 
@@ -97,7 +97,7 @@ class Model
     /**
      * Returns $sloc value.
      */
-    public function getSloc(): string
+    public function getSloc(): ?string
     {
         return $this->sloc;
     }
@@ -209,7 +209,7 @@ class Model
     /**
      * Sets $sloc value.
      */
-    public function setSloc(string $sloc): void
+    public function setSloc(?string $sloc): void
     {
         $this->sloc = $sloc;
     }

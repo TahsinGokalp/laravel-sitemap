@@ -90,7 +90,7 @@ class Sitemap
     /**
      * Add new sitemap item to $items array.
      */
-    public function add(string $loc, ?string $lastmod = null, ?string $priority = null, ?string $freq = null,
+    public function add(?string $loc, ?string $lastmod = null, ?string $priority = null, ?string $freq = null,
         array $images = [], ?string $title = null, array $translations = [], array $videos = [],
         array $googlenews = [], array $alternates = []): void
     {
