@@ -29,7 +29,7 @@ class SitemapServiceProvider extends ServiceProvider implements DeferrableProvid
         ], 'views');
 
         $this->publishes([
-            __DIR__ . '/../public' => public_path('vendor/sitemap'),
+            __DIR__.'/../public' => public_path('vendor/sitemap'),
         ], 'public');
     }
 
@@ -42,7 +42,7 @@ class SitemapServiceProvider extends ServiceProvider implements DeferrableProvid
             $config = $app->make('config');
 
             return new Sitemap(
-                $config->get('sitemap'),
+                (array)$config->get('sitemap'),
                 $app->make('cache.store'),
                 $config,
                 $app->make('files'),
@@ -57,7 +57,7 @@ class SitemapServiceProvider extends ServiceProvider implements DeferrableProvid
     /**
      * {@inheritdoc}
      */
-    public function provides()
+    public function provides(): array
     {
         return ['sitemap', Sitemap::class];
     }
